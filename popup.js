@@ -3,12 +3,18 @@ const popup = document.querySelector('.cat-popup')
 // Get saved state from local storage so we dont display if the user
 // previously double clicked the x
 const shouldDisplay = localStorage.getItem('shouldDisplay') ? JSON.parse(localStorage.getItem('shouldDisplay')) : 'true';
+
 console.log(shouldDisplay)
 
 // wait 3 seconds before showing popup
 setTimeout(() => {
   if (shouldDisplay === 'true') {
     popup.classList.add('showPopup')
+  }
+  else {
+
+    // reset so the popup displays again if the user reloads a second time
+    localStorage.setItem('shouldDisplay', JSON.stringify('true'));
   }
 }, 3000)
 
@@ -47,6 +53,9 @@ xButton.addEventListener('dblclick', () => {
 });
 
 function hidePopup() {
-  popup.classList.remove('showPopup')
-  popup.classList.add('hidePopup')
+  // wait a moment before closing popup
+  setTimeout(() => {
+    popup.classList.remove('showPopup')
+    popup.classList.add('hidePopup')
+  }, 500)
 }
