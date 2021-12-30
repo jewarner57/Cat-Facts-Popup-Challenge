@@ -4,8 +4,6 @@ const popup = document.querySelector('.cat-popup')
 // previously double clicked the x
 const shouldDisplay = localStorage.getItem('shouldDisplay') ? JSON.parse(localStorage.getItem('shouldDisplay')) : 'true';
 
-console.log(shouldDisplay)
-
 // wait 3 seconds before showing popup
 setTimeout(() => {
   if (shouldDisplay === 'true') {
