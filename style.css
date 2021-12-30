@@ -7,21 +7,24 @@ body {
   font-family: sans-serif;
 }
 
-#cat-popup {
+.cat-popup {
+  visibility: hidden;
   width: 50%;
   min-height: 70vh;
   background-color: white;
   position: fixed;
-  display: flex; 
+  display: flex;
 }
 
 .showPopup {
-  animation: showPopup 1s ease-in;
+  animation: showPopup 0.4s ease-in;
+  visibility: visible;
 }
 
 .hidePopup {
-  animation: hidePopup 1s ease-out;
+  animation: hidePopup 0.4s ease-out;
   bottom: -70vh;
+  visibility: hidden;
 }
 
 @keyframes showPopup {
@@ -35,9 +38,11 @@ body {
 
 @keyframes hidePopup {
   0%{
+    visibility: visible;
     bottom: 19vh;
   }
   100%{
+    visibility: visible;
     bottom: -70vh;
   }
 }
@@ -77,5 +82,6 @@ body {
   background-color: black;
   border: none;
   padding: 10px;
+  margin-bottom: 10px;
   width: 90%;
 }
